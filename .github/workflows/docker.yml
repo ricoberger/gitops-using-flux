@@ -3,7 +3,10 @@ env:
 
 name: docker
 
-on: [push]
+on:
+  push:
+    paths-ignore:
+      - 'k8s/**'
 
 jobs:
   docker:
