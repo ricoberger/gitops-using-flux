@@ -1,0 +1,19 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: flux-helm-operator
+  namespace: monitoring
+  labels:
+    app: flux-helm-operator
+    release: prometheus-operator
+spec:
+  endpoints:
+    - port: http
+      honorLabels: true
+  namespaceSelector:
+    matchNames:
+      - flux
+  selector:
+    matchLabels:
+      app: flux-helm-operator

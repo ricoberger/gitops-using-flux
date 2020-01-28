@@ -1,0 +1,60 @@
+image:
+  repository: docker.io/fluxcd/flux
+  tag: 1.17.1
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+
+git:
+  # URL of git repo with Kubernetes manifests; e.g. git.url=ssh://git@github.com/fluxcd/flux-get-started
+  url: "git@github.com:ricoberger/gitops-using-flux.git"
+  # Branch of git repo to use for Kubernetes manifests
+  branch: "master"
+  # Path within git repo to locate Kubernetes manifests (relative path)
+  path: "k8s/dev"
+  # Set to `true` if you intend for Flux to not be able to push changes to git.
+  # Also configure state.mode to `secret` since storing state in a git tag will no longer be possible.
+  readonly: false
+  # Username to use as git committer
+  user: "Weave Flux"
+  # Email to use as git committer
+  email: "support@weave.works"
+  # If set, commits will be signed with this GPG key.
+  signingKey: ""
+  # If set, the signatures of the sync tag and commits will be verified.
+  verifySignatures: false
+  # If set, the author of git commits will reflect the user who initiated the commit and will differ from the git committer.
+  setAuthor: false
+  # Label to keep track of sync progress
+  label: "dev"
+  # Append "[ci skip]" to commit messages so that CI will skip builds
+  ciSkip: false
+  # Period at which to poll git repo for new commits
+  pollInterval: "5m"
+  # Duration after which git operations time out
+  timeout: "20s"
+  # The secret name can be used to supply your own SSH key, instead of
+  # relying on Flux to generate one for you:
+  # 1. Generate a SSH key named identity: ssh-keygen -q -N "" -f ./identity
+  # 2. Create a Kubernetes secret: kubectl -n flux create secret generic flux-ssh --from-file=./identity
+  # 3. Delete the private key: rm ./identity
+  # 4. Add ./identity.pub as a deployment key with write access in your Git repo
+  # 5. Set the secret name (flux-ssh) below
+  secretName: ""
+  # Global Git configuration See https://git-scm.com/docs/git-config for more details.
+  config:
+    enabled: false
+    secretName: ""
+    data: ""
+    # data: |
+    #   [credential "https://github.com"]
+    #           username = foo
+
+prometheus:
+  enabled: true
+
+syncGarbageCollection:
+  enabled: true
+  dry: false

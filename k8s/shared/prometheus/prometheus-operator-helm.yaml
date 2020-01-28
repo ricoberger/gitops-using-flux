@@ -1,0 +1,51 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: prometheus-operator
+  namespace: monitoring
+  labels:
+    app: prometheus-operator
+  annotations:
+    fluxcd.io/automated: "false"
+spec:
+  releaseName: prometheus-operator
+  chart:
+    repository: https://kubernetes-charts.storage.googleapis.com/
+    name: prometheus-operator
+    version: 8.5.14
+  values:
+    defaultRules:
+      create: false
+
+    coreDns:
+      enabled: false
+
+    kubeDns:
+      enabled: false
+
+    kubeControllerManager:
+      enabled: false
+
+    kubeScheduler:
+      enabled: false
+
+    kubeProxy:
+      enabled: false
+
+    nodeExporter:
+      enabled: false
+
+    alertmanager:
+      enabled: false
+
+    prometheus:
+      prometheusSpec:
+        image:
+          tag: v2.15.2
+        enableAdminAPI: true
+        retention: 1d
+        replicas: 1
+
+    grafana:
+      enabled: false

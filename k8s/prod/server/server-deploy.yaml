@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server
+  namespace: server
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.server: 'regexp:^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$'
+spec:
+  replicas: 5
+  template:
+    spec:
+      containers:
+        - name: server
+          image: ricoberger/gitops-using-flux:1.0.0
+          args:
+            - --log.level=warn
+          resources:
+            limits:
+              cpu: 100m
+              memory: 128Mi
+            requests:
+              cpu: 50m
+              memory: 64Mi

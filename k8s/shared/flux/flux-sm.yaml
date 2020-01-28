@@ -1,0 +1,21 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: flux
+  labels:
+    app: flux
+    release: prometheus-operator
+  namespace: flux
+spec:
+  endpoints:
+    - interval: 10s
+      scrapeTimeout: 10s
+      port: http
+      path: /metrics
+  namespaceSelector:
+    matchNames:
+      - flux
+  selector:
+    matchLabels:
+      app: flux
