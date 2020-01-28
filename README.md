@@ -129,6 +129,18 @@ spec:
               memory: 64Mi
 ```
 
+Check the deployed version of the server in the dev and prod cluster:
+
+```sh
+# dev
+k port-forward svc/server --namespace server 8080:8080
+
+# prod
+k port-forward svc/server --namespace server 8081:8080
+```
+
+Then open [localhost:8080](http://localhost:8080) and [localhost:8080](http://localhost:8081) in your browser to check the version information.
+
 #### Prometheus Operator Helm Chart
 
 With the Flux Helm Operator you can also deploy Helm charts. An example can be found in the `k8s/shared/prometheus/prometheus-operator-helm.yaml` file.
