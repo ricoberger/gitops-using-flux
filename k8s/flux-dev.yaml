@@ -58,3 +58,6 @@ prometheus:
 syncGarbageCollection:
   enabled: true
   dry: false
+
+# Enable kustomize support
+manifestGeneration: true

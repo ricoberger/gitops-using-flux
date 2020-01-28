@@ -36,8 +36,8 @@ kind create cluster --name prod
 Configure your terminal to access the clusters:
 
 ```sh
-export KUBECONFIG="$(kind get kubeconfig-path --name="dev")"
-export KUBECONFIG="$(kind get kubeconfig-path --name="prod")"
+kind get kubeconfig --name=dev > ~/.kube/kind-dev; export KUBECONFIG=~/.kube/kind-dev
+kind get kubeconfig --name=prod > ~/.kube/kind-prod; export KUBECONFIG=~/.kube/kind-prod
 ```
 
 Install Flux:

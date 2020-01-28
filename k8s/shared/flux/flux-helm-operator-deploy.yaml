@@ -47,7 +47,7 @@ spec:
             - name: git-key
               mountPath: /etc/fluxd/ssh
           args:
-            - --enabled-helm-versions=v2,v3
+            - --enabled-helm-versions=v3
             - --log-format=json
             - --git-timeout=20s
             - --git-poll-interval=5m
