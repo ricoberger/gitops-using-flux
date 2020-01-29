@@ -208,3 +208,8 @@ To delete the created Kubernetes clusters, run the following commands:
 kind delete cluster --name dev
 kind delete cluster --name prod
 ```
+
+## Links
+
+- [Guide To GitOps](https://www.weave.works/technologies/gitops/)
+- [Flux repository on GitHub](https://github.com/fluxcd/flux)
