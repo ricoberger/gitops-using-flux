@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: ricoberger/gitops-using-flux:master-03206b7
+          image: ricoberger/gitops-using-flux:master-98257c2
           args:
             - --log.level=info
           resources:
