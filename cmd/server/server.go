@@ -54,6 +54,10 @@ var rootCmd = &cobra.Command{
 			fmt.Fprintf(w, "OK")
 		})
 
+		router.Get("/greeting", func(w http.ResponseWriter, r *http.Request) {
+			fmt.Fprintf(w, "Hello World")
+		})
+
 		router.Get("/", func(w http.ResponseWriter, r *http.Request) {
 			w.Write([]byte(`<html>
 			<head><title>GitOps using Flux: How we manage Kubernetes Clusters at Staffbase</title></head>
