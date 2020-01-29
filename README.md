@@ -2,7 +2,8 @@
 
 Repository for my talk at the **Kubernetes and Cloud Native Meetup Dresden** about GitOps using Flux on the 30. January 2020.
 
-- Presentation: [GitOps using Flux: How we manage Kubernetes clusters at Staffbase](./assets/gitops-using-flux.pdf)
+- GitHub: [https://github.com/ricoberger/gitops-using-flux](https://github.com/ricoberger/gitops-using-flux)
+- Presentation: [GitOps using Flux: How we manage Kubernetes clusters at Staffbase](https://github.com/ricoberger/gitops-using-flux/blob/master/assets/gitops-using-flux.pdf)
 - Twitter: [@rico_berger](https://twitter.com/rico_berger)
 
 ## What is GitOps?
