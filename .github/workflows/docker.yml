@@ -5,8 +5,9 @@ name: docker
 
 on:
   push:
-    paths-ignore:
-      - 'k8s/**'
+    paths:
+      - 'cmd/**'
+      - 'pkg/**'
 
 jobs:
   docker:

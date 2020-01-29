@@ -86,7 +86,7 @@ k8s                            # The k8s is used by Flux for the state of the cl
     └── server                 # Deployment for the server
 ```
 
-#### Server Deployment
+### Server Deployment
 
 The template for the server deployment is defined in the `k8s/shared/server/server-deploy.yaml` file. This template is customized for the dev and prod cluster in the `k8s/dev/server/server-deploy` and `k8s/prod/server/server-deploy` files.
 
@@ -141,7 +141,7 @@ k port-forward svc/server --namespace server 8081:8080
 
 Then open [localhost:8080](http://localhost:8080) and [localhost:8080](http://localhost:8081) in your browser to check the version information.
 
-#### Prometheus Operator Helm Chart
+### Prometheus Operator Helm Chart
 
 With the Flux Helm Operator you can also deploy Helm charts. An example can be found in the `k8s/shared/prometheus/prometheus-operator-helm.yaml` file.
 
@@ -197,4 +197,13 @@ spec:
 
     grafana:
       enabled: false
+```
+
+### Clean up
+
+To delete the created Kubernetes clusters, run the following commands:
+
+```sh
+kind delete cluster --name dev
+kind delete cluster --name prod
 ```
