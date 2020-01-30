@@ -55,7 +55,7 @@ var rootCmd = &cobra.Command{
 		})
 
 		router.Get("/greeting", func(w http.ResponseWriter, r *http.Request) {
-			fmt.Fprintf(w, "Hello World")
+			fmt.Fprintf(w, "Hello Kubernetes Meetup")
 		})
 
 		router.Get("/", func(w http.ResponseWriter, r *http.Request) {
